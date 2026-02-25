@@ -1,16 +1,16 @@
 class WeatherModel {
   final String cityName;
   final String date;
-  String? img;
-  final String temp;
-  final String maxTemp;
-  final String minTemp;
+  final String img;
+  final double temp;
+  final double maxTemp;
+  final double minTemp;
   final String dayStatus;
 
   WeatherModel({
     required this.cityName,
     required this.date,
-    this.img,
+    required this.img,
     required this.temp,
     required this.maxTemp,
     required this.minTemp,
@@ -21,13 +21,11 @@ class WeatherModel {
     return WeatherModel(
       cityName: json['location']['name'],
       date: json['current']['last_updated'],
-      temp: json['current']['temp_c'],
-      maxTemp:
-          json['forecast']['forecastday'][0]['day']['maxtemp_c'],
-      minTemp:
-          json['forecast']['forecastday'][0]['day']['mintemp_c'],
-      dayStatus:
-          json['forecast']['forecastday'][0]['day']['condition']['text'],
+      temp: json['forecast']['forecastday'][0]['day']['avgtemp_c'],
+      maxTemp: json['forecast']['forecastday'][0]['day']['maxtemp_c'],
+      minTemp: json['forecast']['forecastday'][0]['day']['mintemp_c'],
+      dayStatus: json['forecast']['forecastday'][0]['day']['condition']['text'],
+      img: json['forecast']['forecastday'][0]['day']['condition']['icon'],
     );
   }
 }

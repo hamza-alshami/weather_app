@@ -8,10 +8,7 @@ class NoWeatherScreen extends StatelessWidget {
     return Center(
       child: Text(
         "There is no weather 😔\nstart searching now",
-        style: TextStyle(
-          fontWeight: FontWeight.w400,
-          fontSize: 22,
-        ),
+        style: TextStyle(fontWeight: FontWeight.w400, fontSize: 22),
         textAlign: TextAlign.center,
       ),
     );
